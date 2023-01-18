@@ -1,0 +1,88 @@
+.analog-clock {
+  width: calc(var(--analog-clock-radius) * 2);
+  height: calc(var(--analog-clock-radius) * 2);
+  border-radius: 50%;
+  position: relative;
+}
+
+.dark .analog-clock {
+  border: 2px solid var(--teal);
+}
+
+.light .analog-clock {
+  border: 2px solid var(--pink);
+}
+
+.analog-clock::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.dark .analog-clock:after {
+  background-color: #f2caf7;
+}
+
+.light .analog-clock:after {
+  background-color: #999;
+}
+
+.analog-clock__number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% 0;
+  transform-origin: top;
+  width: 1px;
+  height: calc(var(--analog-clock-radius) - 5px);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.dark .analog-clock__number {
+  color: #fff;
+}
+
+.light .analog-clock__number {
+  color: #000;
+}
+
+.analog-clock__hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% 0;
+  transform-origin: top;
+}
+
+.analog-clock__hour-hand {
+  width: 2px;
+  height: calc(var(--analog-clock-radius) - 45px);
+}
+
+.analog-clock__minute-hand {
+  width: 2px;
+  height: calc(var(--analog-clock-radius) - 30px);
+}
+
+.dark :is(.analog-clock__hour-hand, .analog-clock__minute-hand) {
+  background-color: #999;
+}
+
+.light :is(.analog-clock__hour-hand, .analog-clock__minute-hand) {
+  background-color: #000;
+}
+
+.analog-clock__second-hand {
+  width: 1px;
+  height: calc(var(--analog-clock-radius) - 25px);
+  background-color: crimson;
+}

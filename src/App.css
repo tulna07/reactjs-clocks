@@ -1,41 +1,53 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root {
+  --analog-clock-radius: 90px;
+  --pink: #ff63c3;
+  --teal: #81e6d9;
+  --dark-theme: #202023;
+  --light-theme: rgb(240, 231, 219);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app.light {
+  background-color: var(--light-theme);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.app.dark {
+  background-color: var(--dark-theme);
 }
 
-.card {
-  padding: 2em;
+.btn-toggle-theme {
+  outline: 0;
+  border: 0;
+  padding: 12px;
+  line-height: 12px;
+  border-radius: 3px;
+
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
 }
 
-.read-the-docs {
-  color: #888;
+.light .btn-toggle-theme {
+  background-color: #805ad5;
+  color: #fff;
+}
+
+.light .btn-toggle-theme:hover {
+  background-color: #6b46c1;
+}
+
+.dark .btn-toggle-theme {
+  background-color: #fbd38d;
+  color: #000;
+}
+
+.dark .btn-toggle-theme:hover {
+  background-color: #f6ad55;
 }

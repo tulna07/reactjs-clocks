@@ -1,34 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useEffect, useState } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+// Components
+import AnalogClock from "./components/AnalogClock";
+import { FaMoon, FaRegSun } from "react-icons/fa";
+
+// Styles
+import "./App.css";
+
+export default function App() {
+  const [date, setDate] = useState(new Date());
+
+  const time = {
+    hours: date.getHours(),
+    minutes: date.getMinutes(),
+    seconds: date.getSeconds(),
+  };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setDate(new Date());
+    }, 1000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <Theme>
+      <AnalogClock time={time} />
+    </Theme>
+  );
 }
 
-export default App
+function Theme({ children }) {
+  const [theme, setTheme] = useState("dark");
+
+  function toggleTheme() {
+    setTheme(theme === "dark" ? "light" : "dark");
+  }
+
+  const icons = theme === "dark" ? <FaRegSun /> : <FaMoon />;
+
+  return (
+    <div className={`app ${theme}`}>
+      <button className="btn-toggle-theme" onClick={toggleTheme}>
+        {icons}
+      </button>
+      {children}
+    </div>
+  );
+}
