@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 // Components
 import AnalogClock from "./components/AnalogClock";
+import DigitalClock from "./components/DigitalClock";
 import { FaMoon, FaRegSun } from "react-icons/fa";
 
 // Styles
@@ -29,6 +30,7 @@ export default function App() {
   return (
     <Theme>
       <AnalogClock time={time} />
+      <DigitalClock time={time} />
     </Theme>
   );
 }

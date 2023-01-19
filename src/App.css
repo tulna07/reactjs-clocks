@@ -1,16 +1,22 @@
 :root {
-  --analog-clock-radius: 90px;
   --pink: #ff63c3;
   --teal: #81e6d9;
   --dark-theme: #202023;
-  --light-theme: rgb(240, 231, 219);
+  --light-theme: #fff;
+  /* Analog clock vars */
+  --analog-clock-radius: 90px;
+  /* Digital clock vars */
+  --segment-width: 25px;
+  --segment-height: 5px;
 }
 
 .app {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 30px;
 }
 
 .app.light {

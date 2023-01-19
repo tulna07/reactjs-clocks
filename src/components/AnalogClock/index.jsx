@@ -14,6 +14,8 @@ export default function AnalogClock({ time }) {
   );
 }
 
+// Related components ================================================================
+
 function ClockFrame({ children }) {
   const numbers = range(1, 12).map(number => {
     return <Number key={number} value={number} />;
