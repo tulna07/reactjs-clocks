@@ -54,9 +54,9 @@ function Digit({ value }) {
 }
 
 function Segment({ label, active }) {
-  return (
-    <div
-      className={`digital-clock__segment ${label} ${active && "active"}`}
-    ></div>
-  );
+  const className = [`digital-clock__segment`, label, active && "active"]
+    .filter(Boolean)
+    .join(" ");
+
+  return <div className={className}></div>;
 }
